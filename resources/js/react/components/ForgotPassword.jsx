@@ -2,7 +2,7 @@ import React from "react";
 import Cta from "./common/Cta";
 import { useForm } from "react-hook-form";
 
-const ForgotPassword = ({handleClosePopup, handleForgotSubmit}) => {
+const ForgotPassword = ({ handleClosePopup, handleForgotSubmit }) => {
     const {
         register,
         handleSubmit,
@@ -18,7 +18,11 @@ const ForgotPassword = ({handleClosePopup, handleForgotSubmit}) => {
     };
 
     return (
-            <div onClick={(e) => e.stopPropagation()} className="max-w-[500px] mx-auto bg-white rounded-lg lg:p-8 p-6 shadow-lg w-full">
+        <div className="flex items-center justify-center p-5 w-full h-screen">
+            <div
+                onClick={(e) => e.stopPropagation()}
+                className="max-w-[500px] mx-auto bg-white rounded-lg lg:p-8 p-6 shadow-lg w-full"
+            >
                 <h2 className="text-black text-center lg:text-4xl md:text-3xl text-2xl font-bold">
                     Forgot Password
                 </h2>
@@ -48,11 +52,11 @@ const ForgotPassword = ({handleClosePopup, handleForgotSubmit}) => {
                                 Enter Email
                             </label>
                         </div>
-                            {errors.email && (
-                                <p className="text-red-500">
-                                    {errors.email.message}
-                                </p>
-                            )}
+                        {errors.email && (
+                            <p className="text-red-500">
+                                {errors.email.message}
+                            </p>
+                        )}
                     </div>
                     <div className="mt-6">
                         <Cta type="submit" className="w-full">
@@ -61,6 +65,7 @@ const ForgotPassword = ({handleClosePopup, handleForgotSubmit}) => {
                     </div>
                 </form>
             </div>
+        </div>
     );
 };
 

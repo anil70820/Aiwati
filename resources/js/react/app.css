@@ -1,32 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+BODY{
+    background-color: #00000020;
+}
 /* Remove autofill background and text color for all browsers */
 input:-webkit-autofill {
-    background-color: transparent !important;
+    background-color: white !important;
     color: black !important; /* Adjust text color as needed */
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
 }
 
 /* Remove autofill background when focused */
 input:-webkit-autofill:focus {
     background-color: transparent !important;
     color: black !important; /* Adjust text color as needed */
-    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
-    box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
 }
 
 /* For Firefox */
 input:-moz-autofill {
-    background-color: transparent !important;
+    background-color: white !important;
     color: black !important;
-    box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
 }
 
 /* For Edge */
 input:-ms-input-placeholder {
-    background-color: transparent !important;
+    background-color: white !important;
     color: black !important;
-    box-shadow: 0 0 0px 1000px transparent inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
 }
