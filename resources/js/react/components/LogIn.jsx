@@ -101,9 +101,9 @@ const LogIn = () => {
                             </p>
                         )}
                     </div>
-                    <p onClick={handleForgotPassword} className="text-base font-medium text-end text-blue-500 mt-3 cursor-pointer duration-300 hover:opacity-80 capitalize">
+                    <a href="/forgot-password" className="text-base flex justify-end font-medium text-end text-blue-500 mt-3 cursor-pointer duration-300 hover:opacity-80 capitalize">
                         forgot password ?
-                    </p>
+                    </a>
                     <div className="mt-6">
                         <Cta type="submit" className="w-full">
                             Log In

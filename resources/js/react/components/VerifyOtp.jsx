@@ -1,23 +1,34 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Cta from "./common/Cta";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
-const VerifyOtp = ({ closePopUp }) => {
+const VerifyOtp = () => {
     const {
         register,
         handleSubmit,
         reset,
         formState: { errors },
     } = useForm();
+    const navigate = useNavigate();
+    const { setShowOtpModal } = useOutletContext(); // Parent component ka context use karein
 
+    const handleClose = () => {
+        setShowOtpModal(false); // State update karein
+        navigate("/admin-register"); // Route back karein
+    };
     const onSubmit = (data) => {
         console.log("OTP Data:", data);
         reset();
-        closePopUp();
+
+        navigate("/login");
     };
 
     return (
-        <div className="flex items-center justify-center p-5 w-full h-screen">
+        <div
+            onClick={handleClose}
+            className="flex items-center justify-center w-full h-screen fixed inset-0 bg-black bg-opacity-50 p-5"
+        >
             <div
                 onClick={(e) => e.stopPropagation()}
                 className="max-w-[500px] mx-auto bg-white rounded-lg lg:p-8 p-6 shadow-lg w-full"

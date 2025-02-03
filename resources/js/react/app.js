@@ -15,9 +15,12 @@ const app = () => {
             <Routes>
                 <Route path="/" element={<Sidebar />} />
                 <Route path="/login" element={<LogIn />} />
-                <Route path="/register/" element={<Register />} />
-                <Route path="/admin-register" element={<AdminRegister />} />
-                <Route path="/verify-otp" element={<VerifyOtp />} />
+                <Route path="/register" element={<Register />}>
+                    <Route path="verify-otp" element={<VerifyOtp />} />
+                </Route>
+                <Route path="/admin-register" element={<AdminRegister />}>
+                    <Route path="verify-otp" element={<VerifyOtp />} />
+                </Route>
                 <Route
                     path="/admin-register/verify-otp"
                     element={<VerifyOtp />}

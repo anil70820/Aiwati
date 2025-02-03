@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Outlet, useNavigate } from "react-router-dom";
 import Cta from "./common/Cta";
-import VerifyOtp from "./VerifyOtp";
 
 const AdminRegister = () => {
     const {
@@ -11,11 +11,13 @@ const AdminRegister = () => {
         formState: { errors },
     } = useForm();
     const [showOtpModal, setShowOtpModal] = useState(false);
+    const navigate = useNavigate();
     const onSubmit = (data) => {
         console.log("Form Data:", data);
-        setShowOtpModal(true); // Show OTP modal
+        navigate("/admin-register/verify-otp");
         reset();
     };
+
     return (
         <div className="w-full h-screen flex items-center justify-center p-5">
             <div className="sm:max-w-[1000px] max-w-[500px] mx-auto bg-white rounded-lg lg:p-8 p-6 shadow-lg w-full">
@@ -141,14 +143,7 @@ const AdminRegister = () => {
                     </p>
                 </form>
             </div>
-            {showOtpModal && (
-                <div
-                    onClick={() => setShowOtpModal(false)}
-                    className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-5"
-                >
-                    <VerifyOtp />
-                </div>
-            )}
+            <Outlet context={{ setShowOtpModal }} />
         </div>
     );
 };
